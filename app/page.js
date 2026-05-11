@@ -76,10 +76,24 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative hero-gradient min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-px h-full bg-amber-500" />
-          <div className="absolute top-0 right-1/4 w-px h-full bg-amber-500" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        {/* Video background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          src="/hero.mp4"
+        />
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+
+        {/* Subtle gold accent lines */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-amber-400" />
+          <div className="absolute top-0 right-1/4 w-px h-full bg-amber-400" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
@@ -115,7 +129,6 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
       </section>
 
       {/* STATS BAR */}

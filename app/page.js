@@ -84,7 +84,7 @@ export default function Home() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-35"
-          src="/hero.mp4"
+          src="https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0141b70f3ad81fbd14b0ae.mp4"
         />
 
         {/* Dark overlay */}

@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-gold: #F2BB19;
+  --color-brand-gold-dark: #D4A017;
+  --color-brand-black: #0a0a0a;
+  --color-brand-dark: #141414;
+  --color-brand-gray: #32373C;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #0a0a0a;
+  font-family: 'Arial', Helvetica, sans-serif;
+}
+
+.hero-gradient {
+  background: linear-gradient(160deg, #0a0a0a 0%, #1c1c1c 40%, #111111 70%, #0a0a0a 100%);
+  position: relative;
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(242, 187, 25, 0.03) 40px,
+    rgba(242, 187, 25, 0.03) 41px
+  );
+  pointer-events: none;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.gold-underline {
+  position: relative;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #D97706;
+}

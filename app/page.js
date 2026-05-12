@@ -2,19 +2,20 @@ import Link from 'next/link';
 
 const testimonials = [
   {
-    quote: "Todd and his team cleared 3 acres of dense brush and repaired our entire driveway in two days. Unbelievable work ethic and they left the place cleaner than they found it.",
-    name: "James R.",
-    location: "Alabama",
+    quote: "I came across Todd and his company after searching videos on driveway installations. He seemed very knowledgeable and friendly in his videos, so I decided to call for an estimate. While I'm unfortunately outside of his working area, Todd spent the better part of 30 minutes giving me advice, and providing recommendations on individuals that could potentially help me in my area. While I cannot speak directly for his work, I feel I can vouch for the man. People like Todd are rare in the construction industry, and I'd be happy to work with him given the opportunity.",
+    name: "Joshua Reborchick",
   },
   {
-    quote: "We had serious flooding issues every time it rained. Southeastern Land came out, installed a French drain system, and we have not had a single problem since. Worth every penny.",
-    name: "Sandra M.",
-    location: "Georgia",
+    quote: "Highly recommend this company. Professional in explaining every step of the process. Efficient and finished the project in the expected amount of time. Fixed drainage issues, created ditches, and replaced the road Helene washed away. It was awesome getting to know Todd.",
+    name: "Susan Horton",
   },
   {
-    quote: "Fair pricing, showed up on time, and the excavation work was exactly what we needed. I have used a lot of contractors and Todd is one of the best.",
-    name: "Mike T.",
-    location: "Mississippi",
+    quote: "I've used Todd for a number of projects around my house and whatever review I do here will not do justice to how excellent Todd and Southeastern Land Specialists, LLC have performed. Competitive pricing, honest, reliable and hard working. If you need something done give Todd a call, he'll fix your problem.",
+    name: "Sam Collingwood",
+  },
+  {
+    quote: "This was my first time working with Todd. He is honest, reliable, fair, and extremely easy to work with. His recommendations for my pond were spot-on, and the final result turned out great. I'll be using him again in the future.",
+    name: "Robert Brtalik",
   },
 ];
 
@@ -278,7 +279,7 @@ export default function Home() {
             <div className="w-16 h-1 bg-amber-500 mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {testimonials.map((t) => (
               <div key={t.name} className="bg-white border border-zinc-200 p-8 hover:border-amber-500 transition-colors duration-300 flex flex-col justify-between">
                 <div>
@@ -295,10 +296,7 @@ export default function Home() {
                   <div className="w-10 h-10 bg-amber-500 flex items-center justify-center text-white font-black text-sm shrink-0">
                     {t.name[0]}
                   </div>
-                  <div>
-                    <span className="text-black font-black text-sm uppercase tracking-wide block">{t.name}</span>
-                    <span className="text-zinc-400 text-xs">{t.location}</span>
-                  </div>
+                  <span className="text-black font-black text-sm uppercase tracking-wide">{t.name}</span>
                 </div>
               </div>
             ))}

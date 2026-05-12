@@ -21,32 +21,32 @@ const testimonials = [
 const servicePhotos = [
   {
     title: 'Gravel Driveway Repair',
-    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e567457445b9eae356.png',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989c29adc07d21e719e6.png',
     href: '/services#gravel-driveway-repair',
   },
   {
     title: 'Erosion Control',
-    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e551bf95bcbb6e127e.png',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989df90b5bc73b041943.png',
     href: '/services#drainage-systems',
   },
   {
     title: 'Land Clearing',
-    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e529adc07d21e617b6.png',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989c67457445b9ebebfb.png',
     href: '/services#land-clearing',
   },
   {
     title: 'Forestry Mulching',
-    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e529adc07d21e617b5.png',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989c4d2085f898d04d3d.png',
     href: '/services#forestry-mulching-bush-hogging',
   },
   {
     title: 'Bush Hogging',
-    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e5fa8afa3be0b3ffc1.png',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989c330f3d5313e0b0bd.png',
     href: '/services#forestry-mulching-bush-hogging',
   },
   {
     title: 'Demolition & Excavation',
-    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e5f07c4898897981cd.png',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989c330f3d5313e0b0bc.png',
     href: '/services#demolition-excavation',
   },
 ];

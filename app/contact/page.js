@@ -5,8 +5,8 @@ import { useState } from 'react';
 const contactInfo = [
   {
     label: 'Phone',
-    value: '(000) 000-0000',
-    href: 'tel:+10000000000',
+    value: '828-231-1146',
+    href: 'tel:+18282311146',
     icon: '📞',
   },
   {
@@ -16,8 +16,8 @@ const contactInfo = [
     icon: '✉️',
   },
   {
-    label: 'Service Area',
-    value: 'Southeastern United States',
+    label: 'Address',
+    value: 'P.O. Box 536, Swannanoa, NC 28778',
     href: null,
     icon: '📍',
   },
@@ -218,7 +218,7 @@ export default function Contact() {
                   </button>
 
                   <p className="text-zinc-400 text-xs text-center">
-                    We typically respond within 24 hours. For urgent requests, please call us directly.
+                    We typically respond within 24 hours. For urgent requests, call us at 828-231-1146.
                   </p>
                 </form>
               )}

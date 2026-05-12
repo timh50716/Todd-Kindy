@@ -43,7 +43,7 @@ export default function Location() {
               <div className="bg-zinc-100 border border-zinc-200 w-full aspect-video flex items-center justify-center">
                 <iframe
                   title="Southeastern Land Specialists Location"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3374000!2d-86.9023!3d32.3792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1699000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d830017.2860405043!2d-82.0570824!3d35.64608795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8859f92f7318dad9%3A0x8c4723a6b1835b78!2sSoutheastern%20Land%20Specialists%2C%20LLC!5e0!3m2!1sen!2sus!4v1778622605536!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: '360px' }}
@@ -58,14 +58,14 @@ export default function Location() {
                   <span className="text-2xl">📍</span>
                   <div>
                     <span className="text-xs font-bold tracking-widest uppercase text-amber-600 block mb-1">Base Location</span>
-                    <span className="text-zinc-700 text-sm">Southeastern United States</span>
+                    <span className="text-zinc-700 text-sm">P.O. Box 536, Swannanoa, NC 28778</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <span className="text-2xl">📞</span>
                   <div>
                     <span className="text-xs font-bold tracking-widest uppercase text-amber-600 block mb-1">Phone</span>
-                    <a href="tel:+10000000000" className="text-zinc-700 hover:text-amber-600 transition-colors text-sm">(000) 000-0000</a>
+                    <a href="tel:+18282311146" className="text-zinc-700 hover:text-amber-600 transition-colors text-sm">828-231-1146</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

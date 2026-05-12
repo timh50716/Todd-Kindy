@@ -60,7 +60,7 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="tel:+10000000000"
+              href="tel:+18282311146"
               className="border border-white hover:border-amber-500 hover:text-amber-500 text-white text-sm font-bold tracking-widest uppercase px-5 py-2.5 transition-colors duration-200"
             >
               📞 Call Us
@@ -104,7 +104,7 @@ export default function Navbar() {
             ))}
             <div className="flex gap-3 mt-4">
               <a
-                href="tel:+10000000000"
+                href="tel:+18282311146"
                 className="flex-1 border border-white text-white text-sm font-bold tracking-widest uppercase text-center py-3 transition-colors hover:border-amber-500 hover:text-amber-500"
               >
                 📞 Call Us

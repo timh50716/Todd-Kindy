@@ -39,8 +39,15 @@ const services = [
   'Other',
 ];
 
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+}
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -53,9 +60,21 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', ...form }),
+      });
+      setSubmitted(true);
+    } catch {
+      alert('Something went wrong. Please try again or call us at 828-231-1146.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -132,7 +151,15 @@ export default function Contact() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs font-bold tracking-widest uppercase text-zinc-700 mb-2">
@@ -212,9 +239,10 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold tracking-widest uppercase py-4 text-sm transition-colors"
+                    disabled={loading}
+                    className="w-full bg-amber-600 hover:bg-amber-700 disabled:opacity-60 text-white font-bold tracking-widest uppercase py-4 text-sm transition-colors"
                   >
-                    Send My Request
+                    {loading ? 'Sending...' : 'Send My Request'}
                   </button>
 
                   <p className="text-zinc-400 text-xs text-center">

@@ -117,7 +117,7 @@ export default function Home() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-70"
-          src="https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0141b70f3ad81fbd14b0ae.mp4"
+          src="https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a039f15138c806d2d958246.mp4"
         />
 
         {/* Dark overlay */}
@@ -132,7 +132,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
           <div className="inline-block mb-6">
             <span className="text-amber-500 text-xs font-bold tracking-[0.3em] uppercase border border-amber-500 px-4 py-2">
-              Southeastern United States
+              Southeastern Land Specialists
             </span>
           </div>
 

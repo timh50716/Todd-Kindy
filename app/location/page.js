@@ -1,8 +1,9 @@
 import Link from 'next/link';
 
 const serviceAreas = [
-  'Alabama', 'Georgia', 'Mississippi', 'Tennessee',
-  'Florida (Panhandle)', 'South Carolina', 'North Carolina',
+  'Buncombe County, NC',
+  'Burke County, NC',
+  'McDowell County, NC',
 ];
 
 const localAreas = [
@@ -26,7 +27,7 @@ export default function Location() {
           </h1>
           <div className="w-16 h-1 bg-amber-600 mt-6" />
           <p className="text-zinc-300 text-lg mt-6 max-w-xl">
-            We proudly serve residential, agricultural, and commercial properties across the Southeastern United States.
+            We proudly serve Buncombe, Burke, and McDowell counties in Western North Carolina.
           </p>
         </div>
       </section>
@@ -85,8 +86,8 @@ export default function Location() {
               <h2 className="text-2xl font-black text-black uppercase mb-4">Areas We Serve</h2>
               <div className="w-12 h-1 bg-amber-600 mb-8" />
               <p className="text-zinc-600 text-sm leading-relaxed mb-8">
-                We are a mobile operation — our equipment comes to you. We work across the Southeast and
-                can travel for larger projects. If you are unsure whether we service your area, just give us a call.
+                We are based in Swannanoa, NC and proudly serve Buncombe, Burke, and McDowell counties.
+                Not sure if we cover your area? Give us a call and we will let you know.
               </p>
 
               <div className="grid grid-cols-2 gap-3 mb-10">

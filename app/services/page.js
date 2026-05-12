@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const services = [
   {
-    icon: '🪨',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989c29adc07d21e719e6.png',
     title: 'Gravel Driveway Repair',
     shortDesc: 'Restore and reinforce your gravel driveway.',
     details: [
@@ -15,7 +15,7 @@ const services = [
     desc: 'A damaged or rutted driveway is more than an eyesore — it can cause serious drainage problems and vehicle damage. We repair and restore gravel driveways of all sizes, from short residential lanes to long rural access roads. Our process includes proper grading, base repair, and fresh gravel application to give you a smooth, lasting result.',
   },
   {
-    icon: '💧',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989df90b5bc73b041943.png',
     title: 'Drainage Systems',
     shortDesc: 'Keep water moving away from your property.',
     details: [
@@ -28,7 +28,7 @@ const services = [
     desc: 'Poor drainage can destroy your yard, foundation, and driveway faster than almost anything else. We design and install custom drainage systems tailored to your property — from simple culvert work to full French drain networks. We identify where water is collecting and build a system that moves it away efficiently and permanently.',
   },
   {
-    icon: '🌲',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989c67457445b9ebebfb.png',
     title: 'Land Clearing',
     shortDesc: 'Clear your land for building, farming, or recreation.',
     details: [
@@ -41,8 +41,8 @@ const services = [
     desc: 'Whether you are preparing a building site, reclaiming agricultural land, or clearing a recreational property, we have the equipment and expertise to get it done efficiently. We handle full land clearing including tree felling, stump grinding, brush removal, and debris hauling — leaving you with a clean, ready-to-use property.',
   },
   {
-    icon: '🌿',
-    title: 'Forestry Mulching',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989c4d2085f898d04d3d.png',
+    title: 'Forestry Mulching & Bush Hogging',
     shortDesc: 'Reclaim overgrown land without hauling debris.',
     details: [
       'Forestry mulching for dense brush and trees',
@@ -54,7 +54,7 @@ const services = [
     desc: 'Forestry mulching is one of the most efficient ways to clear land — the mulcher grinds trees, brush, and stumps in one pass, leaving behind a natural wood chip mulch that enriches the soil. For lighter vegetation and open fields, our bush hog service quickly cuts down overgrowth. Both services are ideal for reclaiming land without the cost of hauling debris.',
   },
   {
-    icon: '🏗️',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a03989c330f3d5313e0b0bc.png',
     title: 'Demolition & Excavation',
     shortDesc: 'Safe, efficient demolition and precision earthwork.',
     details: [
@@ -112,15 +112,26 @@ export default function Services() {
             className={`py-20 ${i % 2 === 1 ? 'bg-zinc-50' : 'bg-white'}`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                <div className={i % 2 === 1 ? 'order-2 lg:order-1' : ''}>
-                  <div className="text-5xl mb-4">{service.icon}</div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                {/* Text column */}
+                <div className={i % 2 === 1 ? 'order-1 lg:order-2' : ''}>
                   <span className="text-amber-600 text-xs font-bold tracking-[0.3em] uppercase">Service</span>
                   <h2 className="text-3xl sm:text-4xl font-black text-black uppercase mt-2 mb-4">
                     {service.title}
                   </h2>
                   <div className="w-12 h-1 bg-amber-600 mb-6" />
                   <p className="text-zinc-600 leading-relaxed mb-8">{service.desc}</p>
+
+                  <ul className="space-y-3 mb-8">
+                    {service.details.map((detail) => (
+                      <li key={detail} className="flex items-start gap-3">
+                        <span className="text-amber-600 font-black mt-0.5 shrink-0">→</span>
+                        <span className="text-zinc-600 text-sm leading-relaxed">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+
                   <Link
                     href="/contact"
                     className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold tracking-widest uppercase px-6 py-3 text-sm transition-colors"
@@ -129,19 +140,15 @@ export default function Services() {
                   </Link>
                 </div>
 
-                <div className={`bg-zinc-950 p-8 ${i % 2 === 1 ? 'order-1 lg:order-2' : ''}`}>
-                  <h3 className="text-amber-500 text-xs font-bold tracking-widest uppercase mb-6">
-                    What&apos;s Included
-                  </h3>
-                  <ul className="space-y-4">
-                    {service.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-3">
-                        <span className="text-amber-600 font-black mt-0.5 shrink-0">→</span>
-                        <span className="text-zinc-300 text-sm leading-relaxed">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Photo column */}
+                <div className={`overflow-hidden ${i % 2 === 1 ? 'order-2 lg:order-1' : ''}`}>
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-80 lg:h-[480px] object-cover"
+                  />
                 </div>
+
               </div>
             </div>
           </section>

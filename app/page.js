@@ -18,6 +18,39 @@ const testimonials = [
   },
 ];
 
+const servicePhotos = [
+  {
+    title: 'Gravel Driveway Repair',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e567457445b9eae356.png',
+    href: '/services#gravel-driveway-repair',
+  },
+  {
+    title: 'Erosion Control',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e551bf95bcbb6e127e.png',
+    href: '/services#drainage-systems',
+  },
+  {
+    title: 'Land Clearing',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e529adc07d21e617b6.png',
+    href: '/services#land-clearing',
+  },
+  {
+    title: 'Forestry Mulching',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e529adc07d21e617b5.png',
+    href: '/services#forestry-mulching-bush-hogging',
+  },
+  {
+    title: 'Bush Hogging',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e5fa8afa3be0b3ffc1.png',
+    href: '/services#forestry-mulching-bush-hogging',
+  },
+  {
+    title: 'Demolition & Excavation',
+    image: 'https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a0393e5f07c4898897981cd.png',
+    href: '/services#demolition-excavation',
+  },
+];
+
 const services = [
   {
     icon: '🪨',
@@ -145,58 +178,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES PREVIEW */}
-      <section className="py-24 bg-white">
+      {/* SERVICES PHOTO GRID */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <span className="text-amber-600 text-xs font-bold tracking-[0.3em] uppercase">What We Do</span>
             <h2 className="text-4xl sm:text-5xl font-black text-black uppercase mt-3 mb-4">
               Our Services
             </h2>
-            <div className="w-16 h-1 bg-amber-600 mx-auto" />
+            <p className="text-zinc-500 text-sm">Below are some recent examples of our work.</p>
+            <div className="w-16 h-1 bg-amber-600 mx-auto mt-4" />
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="group border border-zinc-200 hover:border-amber-600 p-8 transition-all duration-300 hover:shadow-lg"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-lg font-black text-black uppercase tracking-wide mb-3 group-hover:text-amber-600 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-zinc-600 text-sm leading-relaxed">{service.desc}</p>
-              </div>
-            ))}
-            {/* CTA card */}
-            <div className="bg-black p-8 flex flex-col justify-between">
-              <div>
-                <span className="text-amber-500 text-xs font-bold tracking-widest uppercase">Ready to Start?</span>
-                <h3 className="text-xl font-black text-white uppercase mt-3 mb-4">
-                  Get Your Free Estimate Today
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  No pressure, no obligation. We will come to your property and give you an honest quote.
-                </p>
-              </div>
-              <Link
-                href="/contact"
-                className="mt-8 inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold tracking-widest uppercase text-center px-6 py-3 text-sm transition-colors"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {servicePhotos.map((item) => (
             <Link
-              href="/services"
-              className="border-2 border-black hover:border-amber-600 hover:text-amber-600 text-black font-bold tracking-widest uppercase px-8 py-4 text-sm transition-colors duration-200"
+              key={item.title}
+              href={item.href}
+              className="group relative overflow-hidden block aspect-[4/3] cursor-pointer"
             >
-              View All Services
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+              />
+              {/* Base overlay */}
+              <div className="absolute inset-0 bg-black/35 group-hover:bg-black/50 transition-colors duration-500" />
+              {/* Gold bar that slides up on hover */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-400" />
+              {/* Label */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
+                <h3 className="text-white font-black uppercase tracking-widest text-sm drop-shadow-lg">
+                  {item.title}
+                </h3>
+                <span className="text-amber-400 font-black text-lg opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                  →
+                </span>
+              </div>
             </Link>
-          </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link
+            href="/services"
+            className="border-2 border-black hover:border-amber-600 hover:text-amber-600 text-black font-bold tracking-widest uppercase px-8 py-4 text-sm transition-colors duration-200"
+          >
+            View All Services
+          </Link>
         </div>
       </section>
 

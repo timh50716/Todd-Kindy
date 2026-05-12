@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
@@ -30,19 +31,21 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 py-4">
-          {/* Logo */}
-          <Link href="/" className="flex flex-col leading-tight">
-            <span className="text-white font-black text-lg tracking-widest uppercase">
-              Southeastern
-            </span>
-            <span className="text-amber-500 font-black text-lg tracking-widest uppercase">
-              Land Specialists
-            </span>
+        <div className="flex items-center justify-between py-3">
+          {/* Logo image */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a039cc6f07c4898897b679d.png"
+              alt="Southeastern Land Specialists"
+              width={180}
+              height={60}
+              className="h-14 w-auto object-contain"
+              unoptimized
+            />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -56,6 +59,12 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="tel:+10000000000"
+              className="border border-white hover:border-amber-500 hover:text-amber-500 text-white text-sm font-bold tracking-widest uppercase px-5 py-2.5 transition-colors duration-200"
+            >
+              📞 Call Us
+            </a>
             <Link
               href="/contact"
               className="bg-amber-600 hover:bg-amber-700 text-white text-sm font-bold tracking-widest uppercase px-5 py-2.5 transition-colors duration-200"
@@ -70,21 +79,9 @@ export default function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? 'rotate-45 translate-y-2' : ''
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? 'opacity-0' : ''
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`}
-            />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </div>
@@ -105,13 +102,21 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              onClick={() => setMenuOpen(false)}
-              className="mt-4 bg-amber-600 hover:bg-amber-700 text-white text-sm font-bold tracking-widest uppercase text-center py-3 transition-colors"
-            >
-              Free Quote
-            </Link>
+            <div className="flex gap-3 mt-4">
+              <a
+                href="tel:+10000000000"
+                className="flex-1 border border-white text-white text-sm font-bold tracking-widest uppercase text-center py-3 transition-colors hover:border-amber-500 hover:text-amber-500"
+              >
+                📞 Call Us
+              </a>
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="flex-1 bg-amber-600 hover:bg-amber-700 text-white text-sm font-bold tracking-widest uppercase text-center py-3 transition-colors"
+              >
+                Free Quote
+              </Link>
+            </div>
           </nav>
         </div>
       )}

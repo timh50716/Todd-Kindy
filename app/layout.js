@@ -6,6 +6,18 @@ export const metadata = {
   title: "Southeastern Land Specialists | Land Clearing & Excavation in WNC",
   description:
     "Land clearing, gravel driveways, drainage & excavation in Buncombe, Burke & McDowell County, NC. Owner-operated by Todd Kindy. Free estimates — 828-231-1146.",
+  metadataBase: new URL("https://southeasternlandspecialists.com"),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   icons: {
     icon: [{ url: "https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a039cc6f07c4898897b679d.png", type: "image/png" }],
   },

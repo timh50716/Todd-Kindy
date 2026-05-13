@@ -40,21 +40,16 @@ const services = [
   'Other',
 ];
 
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-}
-
 export default function Contact() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [form, setForm] = useState({
-    name: '',
+    'full-name': '',
     email: '',
     phone: '',
     service: '',
-    message: '',
+    'project-details': '',
   });
 
   function handleChange(e) {
@@ -64,15 +59,22 @@ export default function Contact() {
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
+    setError(false);
+    const formData = new FormData(e.target);
+    const encoded = new URLSearchParams(formData).toString();
     try {
-      await fetch('/', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', ...form }),
+        body: encoded,
       });
-      router.push('/thank-you');
+      if (response.ok) {
+        router.push('/thank-you');
+      } else {
+        setError(true);
+      }
     } catch {
-      alert('Something went wrong. Please try again or call us at 828-231-1146.');
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -137,104 +139,116 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-                <form
-                  name="contact"
-                  method="POST"
-                  data-netlify="true"
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                >
-                  <input type="hidden" name="form-name" value="contact" />
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                <input type="hidden" name="form-name" value="contact" />
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-xs font-bold tracking-widest uppercase text-zinc-700 mb-2">
-                        Full Name <span className="text-amber-600">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        value={form.name}
-                        onChange={handleChange}
-                        className="w-full border border-zinc-300 focus:border-amber-600 outline-none px-4 py-3 text-sm transition-colors"
-                        placeholder="John Smith"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold tracking-widest uppercase text-zinc-700 mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={form.phone}
-                        onChange={handleChange}
-                        className="w-full border border-zinc-300 focus:border-amber-600 outline-none px-4 py-3 text-sm transition-colors"
-                        placeholder="(555) 000-0000"
-                      />
-                    </div>
-                  </div>
+                {/* Honeypot — hidden from real users, catches bots */}
+                <p style={{ display: 'none' }}>
+                  <label>Don&apos;t fill this out if you&apos;re human: <input name="bot-field" /></label>
+                </p>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold tracking-widest uppercase text-zinc-700 mb-2">
-                      Email Address <span className="text-amber-600">*</span>
+                      Full Name <span className="text-amber-600">*</span>
                     </label>
                     <input
-                      type="email"
-                      name="email"
+                      type="text"
+                      name="full-name"
                       required
-                      value={form.email}
+                      value={form['full-name']}
                       onChange={handleChange}
                       className="w-full border border-zinc-300 focus:border-amber-600 outline-none px-4 py-3 text-sm transition-colors"
-                      placeholder="you@example.com"
+                      placeholder="John Smith"
                     />
                   </div>
-
                   <div>
                     <label className="block text-xs font-bold tracking-widest uppercase text-zinc-700 mb-2">
-                      Service Needed
+                      Phone Number
                     </label>
-                    <select
-                      name="service"
-                      value={form.service}
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={form.phone}
                       onChange={handleChange}
-                      className="w-full border border-zinc-300 focus:border-amber-600 outline-none px-4 py-3 text-sm transition-colors bg-white"
-                    >
-                      <option value="">Select a service...</option>
-                      {services.map((s) => (
-                        <option key={s} value={s}>{s}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold tracking-widest uppercase text-zinc-700 mb-2">
-                      Project Details <span className="text-amber-600">*</span>
-                    </label>
-                    <textarea
-                      name="message"
-                      required
-                      rows={6}
-                      value={form.message}
-                      onChange={handleChange}
-                      className="w-full border border-zinc-300 focus:border-amber-600 outline-none px-4 py-3 text-sm transition-colors resize-none"
-                      placeholder="Tell us about your project — location, size, what needs to be done..."
+                      className="w-full border border-zinc-300 focus:border-amber-600 outline-none px-4 py-3 text-sm transition-colors"
+                      placeholder="(555) 000-0000"
                     />
                   </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-amber-600 hover:bg-amber-700 disabled:opacity-60 text-white font-bold tracking-widest uppercase py-4 text-sm transition-colors"
+                <div>
+                  <label className="block text-xs font-bold tracking-widest uppercase text-zinc-700 mb-2">
+                    Email Address <span className="text-amber-600">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={form.email}
+                    onChange={handleChange}
+                    className="w-full border border-zinc-300 focus:border-amber-600 outline-none px-4 py-3 text-sm transition-colors"
+                    placeholder="you@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold tracking-widest uppercase text-zinc-700 mb-2">
+                    Service Needed
+                  </label>
+                  <select
+                    name="service"
+                    value={form.service}
+                    onChange={handleChange}
+                    className="w-full border border-zinc-300 focus:border-amber-600 outline-none px-4 py-3 text-sm transition-colors bg-white"
                   >
-                    {loading ? 'Sending...' : 'Send My Request'}
-                  </button>
+                    <option value="">Select a service...</option>
+                    {services.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+                </div>
 
-                  <p className="text-zinc-400 text-xs text-center">
-                    We typically respond within 24 hours. For urgent requests, call us at 828-231-1146.
+                <div>
+                  <label className="block text-xs font-bold tracking-widest uppercase text-zinc-700 mb-2">
+                    Project Details <span className="text-amber-600">*</span>
+                  </label>
+                  <textarea
+                    name="project-details"
+                    required
+                    rows={6}
+                    value={form['project-details']}
+                    onChange={handleChange}
+                    className="w-full border border-zinc-300 focus:border-amber-600 outline-none px-4 py-3 text-sm transition-colors resize-none"
+                    placeholder="Tell us about your project — location, size, what needs to be done..."
+                  />
+                </div>
+
+                {error && (
+                  <p className="text-red-600 text-sm text-center">
+                    Something went wrong. Please try again or call us at 828-231-1146.
                   </p>
-                </form>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-amber-600 hover:bg-amber-700 disabled:opacity-60 text-white font-bold tracking-widest uppercase py-4 text-sm transition-colors"
+                >
+                  {loading ? 'Sending...' : 'Send My Request'}
+                </button>
+
+                <p className="text-zinc-400 text-xs text-center">
+                  We typically respond within 24 hours. For urgent requests, call us at 828-231-1146.
+                </p>
+              </form>
             </div>
           </div>
         </div>

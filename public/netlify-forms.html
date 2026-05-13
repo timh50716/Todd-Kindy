@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <!-- Hidden form for Netlify Forms detection -->
-    <form name="contact" data-netlify="true" hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
+    <!-- Hidden detection form for Netlify Forms build bot -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="full-name" />
       <input type="tel" name="phone" />
-      <select name="service"></select>
-      <textarea name="message"></textarea>
+      <input type="email" name="email" />
+      <select name="service">
+        <option>Gravel Driveway Repair</option>
+        <option>Drainage Systems</option>
+        <option>Land Clearing</option>
+        <option>Forestry Mulching</option>
+        <option>Bush Hogging</option>
+        <option>Demolition &amp; Excavation</option>
+        <option>Other</option>
+      </select>
+      <textarea name="project-details"></textarea>
+      <input type="text" name="bot-field" />
     </form>
   </body>
 </html>

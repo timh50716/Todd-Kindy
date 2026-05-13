@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <!-- Hidden detection form for Netlify Forms build bot -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <!-- Static detection form — receives all JS form POSTs from the contact page -->
+    <form name="contact" netlify data-netlify="true" netlify-honeypot="bot-field">
       <input type="text" name="full-name" />
       <input type="tel" name="phone" />
       <input type="email" name="email" />
@@ -17,6 +17,7 @@
       </select>
       <textarea name="project-details"></textarea>
       <input type="text" name="bot-field" />
+      <button type="submit">Send</button>
     </form>
   </body>
 </html>

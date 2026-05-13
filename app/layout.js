@@ -3,9 +3,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Southeastern Land Specialists | Land Clearing & Excavation | Buncombe, Burke & McDowell County NC",
+  title: "Southeastern Land Specialists | Land Clearing & Excavation in Western NC",
   description:
-    "Owner-operated land clearing, gravel driveway repair, drainage systems, forestry mulching, bush hogging & demolition serving Buncombe, Burke, and McDowell County NC. Call Todd at 828-231-1146 for a free estimate.",
+    "Land clearing, gravel driveways, drainage & excavation in Buncombe, Burke & McDowell County, NC. Owner-operated by Todd Kindy. Free estimates — 828-231-1146.",
+  icons: {
+    icon: [{ url: "https://assets.cdn.filesafe.space/J5hu37m4rtiqVGr6WbVa/media/6a039cc6f07c4898897b679d.png", type: "image/png" }],
+  },
 };
 
 const schemaMarkup = {

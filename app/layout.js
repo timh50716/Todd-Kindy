@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Southeastern Land Specialists | Land Clearing & Excavation in Western NC",
+  title: "Southeastern Land Specialists | Land Clearing & Excavation in WNC",
   description:
     "Land clearing, gravel driveways, drainage & excavation in Buncombe, Burke & McDowell County, NC. Owner-operated by Todd Kindy. Free estimates — 828-231-1146.",
   icons: {

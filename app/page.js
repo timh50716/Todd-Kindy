@@ -138,8 +138,8 @@ export default function Home() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-white uppercase leading-none tracking-tight mb-6">
-            Land & Property
-            <span className="block text-amber-500">Specialists</span>
+            Land Clearing &
+            <span className="block text-amber-500">Excavation</span>
           </h1>
 
           <p className="text-zinc-300 text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">

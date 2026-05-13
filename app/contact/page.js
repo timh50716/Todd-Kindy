@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const contactInfo = [
   {
@@ -46,7 +47,7 @@ function encode(data) {
 }
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: '',
@@ -69,7 +70,7 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'contact', ...form }),
       });
-      setSubmitted(true);
+      router.push('/thank-you');
     } catch {
       alert('Something went wrong. Please try again or call us at 828-231-1146.');
     } finally {
@@ -136,21 +137,6 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              {submitted ? (
-                <div className="h-full flex flex-col items-center justify-center text-center py-16 border border-zinc-200 px-8">
-                  <div className="text-5xl mb-6">✅</div>
-                  <h3 className="text-2xl font-black text-black uppercase mb-3">Message Sent!</h3>
-                  <p className="text-zinc-600 max-w-md">
-                    Thank you for reaching out. We will review your request and get back to you within 24 hours.
-                  </p>
-                  <button
-                    onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', service: '', message: '' }); }}
-                    className="mt-8 bg-amber-600 hover:bg-amber-700 text-white font-bold tracking-widest uppercase px-6 py-3 text-sm transition-colors"
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
                 <form
                   name="contact"
                   method="POST"
@@ -249,7 +235,6 @@ export default function Contact() {
                     We typically respond within 24 hours. For urgent requests, call us at 828-231-1146.
                   </p>
                 </form>
-              )}
             </div>
           </div>
         </div>

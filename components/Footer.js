@@ -107,6 +107,19 @@ export default function Footer() {
             <Link href="/contact" className="hover:text-amber-500 transition-colors uppercase tracking-widest">Contact</Link>
           </nav>
         </div>
+        <div className="mt-4 text-center">
+          <p className="text-zinc-600 text-xs">
+            Website by{' '}
+            <a
+              href="https://avlmediasolutions.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-amber-500 transition-colors"
+            >
+              AVL Media Solutions
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

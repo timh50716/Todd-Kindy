@@ -64,6 +64,23 @@ export default function RootLayout({ children }) {
         {/* Google Tag Manager (noscript) */}
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7P7QCNS" height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
         {/* End Google Tag Manager (noscript) */}
+        {/* Netlify Forms detection — must be server-rendered HTML for build bot to find it */}
+        <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+          <input type="text" name="full-name" />
+          <input type="tel" name="phone" />
+          <input type="email" name="email" />
+          <select name="service">
+            <option>Gravel Driveway Repair</option>
+            <option>Drainage Systems</option>
+            <option>Land Clearing</option>
+            <option>Forestry Mulching</option>
+            <option>Bush Hogging</option>
+            <option>Demolition &amp; Excavation</option>
+            <option>Other</option>
+          </select>
+          <textarea name="project-details"></textarea>
+          <input type="text" name="bot-field" />
+        </form>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

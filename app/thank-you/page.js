@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 
 export const metadata = {
   title: "Thank You | Southeastern Land Specialists",
@@ -9,6 +10,13 @@ export const metadata = {
 export default function ThankYou() {
   return (
     <>
+      <Script
+        id="google-ads-conversion"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `gtag('event', 'conversion', {'send_to': 'AW-669034165/KoSRCM2t3ZEDELXNgr8C'});`,
+        }}
+      />
       {/* PAGE HEADER */}
       <section className="hero-gradient pt-36 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
